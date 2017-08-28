@@ -8,9 +8,7 @@ Module.register("MMM-EOL", {
 
     // Module config defaults.           // Make all changes in your config.js file
     defaults: {
-	//	rover: "curiosity",              // 
-	//	sol: "200",                      //
-		animal: "",                      // See Animal list
+	animal: "",                      // See Animal list
         useHeader: true,                 // false if you don't want a header      
         header: "",                      // Change in config file. useHeader must be true
         maxWidth: "300px",
@@ -22,24 +20,24 @@ Module.register("MMM-EOL", {
 
     
 		
-		animalArray: {
+	animalArray: {
             "Tiger": "328674",
             "Hummingbird": "8021",
             "Lion": "32867",
             "Jaguar": "328606",
             "Leopard": "328673",
             "Cheetah": "328680",
-			"Fox": "19076",
-			"Deaths-head Moth": "50688",
-			"Great White Shark": "213726",
-			"True Seals": "7666",
-			"Mosquitos": "473",
-			"Venus Flytrap": "71355",
-			"Northern Cardinal": "1052070",
-			"Humpback Whale": "328575",
-			"Praying Mantis": "487055",
-			"Dragonfly": "42274802",
-			"Tarantulas": "170",
+	    "Fox": "19076",
+		"Deaths-head Moth": "50688",
+		"Great White Shark": "213726",
+		"True Seals": "7666",
+		"Mosquitos": "473",
+		"Venus Flytrap": "71355",
+		"Northern Cardinal": "1052070",
+		"Humpback Whale": "328575",
+		"Praying Mantis": "487055",
+		"Dragonfly": "42274802",
+		"Tarantulas": "170",
 			
 		}
     },
@@ -56,7 +54,6 @@ Module.register("MMM-EOL", {
 
         //  Set locale.
 	this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=overview&details=true&taxonomy=false&vetted=1&language=en";
-		/////////////////////////////////////////////////////////////////this.config.logoArray[nhl.teams.away.team.id]
         this.EOL = [];
         this.activeItem = 1;
         this.rotateInterval = null;
@@ -68,16 +65,9 @@ Module.register("MMM-EOL", {
 
     getDom: function() {
 		
-		var animal = this.config.animal;
+	var animal = this.config.animal;
 		
 		
-	// Doesn't work	
-	//	var Hummingbird = "8021";
-	//	var Lion = "32867";
-	//	var Jaguar = "328606";
-	//	var Leopard = "328673";
-	//	var Cheetah = "328680";
-	//	var Tiger = "328674";
 
         var wrapper = document.createElement("div");
         wrapper.className = "wrapper";
@@ -108,10 +98,7 @@ Module.register("MMM-EOL", {
 		
 	//	console.log(EOL); // for checking
 	
-		// config options
-	//	var rover = this.config.rover
-	//	var sol = this.config.sol
-
+	
         var top = document.createElement("div");
         top.classList.add("list-row");
 		
@@ -158,45 +145,7 @@ Module.register("MMM-EOL", {
 		} else
 			location.innerHTML = EOL.location;
 			wrapper.appendChild(location);
-			
-		
-		
-		
-	//	NEED COMMON NAMES IN URL //////////////////////////////
-	
-	
-	
-	
-        
-		
-	/*	
-		// launch from earth date
-        var launch = document.createElement("div");
-        launch.classList.add("xsmall", "bright", "launch");
-        launch.innerHTML = "Launched from Earth " + EOL.rover.launch_date;
-        wrapper.appendChild(launch);
-		
-		
-		// landed on mars date
-        var landed = document.createElement("div");
-        landed.classList.add("xsmall", "bright", "landed");
-        landed.innerHTML = "Landed on Mars " + EOL.rover.landing_date;
-        wrapper.appendChild(landed);
-		
-		
-		// missionStatus and length
-        var missionStatus = document.createElement("div");
-        missionStatus.classList.add("xsmall", "bright", "missionStatus");
-        missionStatus.innerHTML = "Mission Status is " + EOL.rover.status + " , " + EOL.rover.max_sol + " sols";
-        wrapper.appendChild(missionStatus);
-		
-		
-		// total photos taken
-        var totalPhotos = document.createElement("div");
-        totalPhotos.classList.add("xsmall", "bright", "totalPhotos");
-        totalPhotos.innerHTML = EOL.rover.total_photos + " photos taken to date";
-        wrapper.appendChild(totalPhotos);
-	*/	
+				
 		}
         return wrapper;
     },
