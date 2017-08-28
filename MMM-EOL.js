@@ -8,9 +8,7 @@ Module.register("MMM-EOL", {
 
     // Module config defaults.           // Make all changes in your config.js file
     defaults: {
-	//	rover: "curiosity",              // 
-	//	sol: "200",                      //
-		animal: "",                      // See Animal list
+        animal: "",                      // See Animal list
         useHeader: true,                 // false if you don't want a header      
         header: "",                      // Change in config file. useHeader must be true
         maxWidth: "300px",
@@ -21,13 +19,13 @@ Module.register("MMM-EOL", {
         updateInterval: 30 * 60 * 1000,  // 
 
     		animalArray: {
-            "Tiger": "328674",
-            "Hummingbirds": "8021",
-            "Lion": "32867",
-            "Jaguar": "328606",
-            "Leopard": "328673",
-            "Cheetah": "328680",
-			"Fox": "19076",
+			"Tiger": "328674",
+			"Hummingbirds": "8021",
+			"Lion": "32867",
+			"Jaguar": "328606",
+			"Leopard": "328673",
+			"Cheetah": "328680",
+            "Fox": "19076",
 			"Deaths-head Moth": "50688",
 			"Great White Shark": "213726",
 			"Seals": "7666",
