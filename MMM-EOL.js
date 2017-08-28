@@ -25,7 +25,7 @@ Module.register("MMM-EOL", {
 			"Jaguar": "328606",
 			"Leopard": "328673",
 			"Cheetah": "328680",
-            "Fox": "19076",
+            		"Fox": "19076",
 			"Deaths-head Moth": "50688",
 			"Great White Shark": "213726",
 			"Seals": "7666",
