@@ -1,0 +1,39 @@
+/* Copy and paste any or all of these css entries into your custom.css file inside your
+ * css folder. The functions are annotated to make things as easy as possible for you.
+ * Use any colors you want! For example - "http://htmlcolorcodes.com/color-picker/"
+ * Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
+ */
+
+ .MMM-EOL .header {
+  color: #FFFFFF;               /* Color the title text. Default is white. */
+  text-align: center;           /* Align the title text. (left, center, right) */
+}
+
+.MMM-EOL .title {
+  color: #FFFFFF;               /* Color the title text. Default is white. */
+  text-align: center;           /* Align the title text. (left, center, right) */
+  /*  display: none; */         /* Uncomment if you don't want title text */
+}
+ 
+ .MMM-EOL .photo {
+  width: 100%;                  /* adjust size of picture */
+  height: 200px;                /* adjust size of picture */
+  margin-left: 0px;             /* Precisely align picture with these */
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  float: center;
+}
+
+.MMM-EOL .description {
+  color: #FFFFFF;               /* Color the description text. Default is white. */
+  text-align: center;           /* Align the description text. (left, center, right) */
+  /*  display: none; */         /* Uncomment if you don't want description text */
+}
+
+.MMM-EOL .location {
+  color: #FFFFFF;               /* Color the location. Default is white. */
+  text-align: center;           /* Align the location. (left, center, right) */
+/*  display: none; */           /* Uncomment if you don't want location */
+}
+
