@@ -21,8 +21,7 @@ module.exports = NodeHelper.create({
             method: 'GET'
         }, (error, response, body) => {
             if (!error && response.statusCode == 200) {
-                var result = JSON.parse(body).dataObjects;
-			//	console.log(response.statusCode); // check
+                var result = JSON.parse(body);
                 this.sendSocketNotification('EOL_RESULT', result);
             }
         });
