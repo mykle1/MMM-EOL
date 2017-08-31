@@ -175,11 +175,11 @@ Module.register("MMM-EOL", {
 		// description
 			var description = document.createElement("div");
 			description.classList.add("xsmall", "bright", "description");
-		if (EOL[0].description == undefined || EOL[0].description == ""){
+		if (EOL.description == undefined || EOL.description == ""){
 			description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
 			wrapper.appendChild(description);
 		} else
-			description.innerHTML = this.sTrim(EOL[0].description, 400, ' ', ' ...');
+			description.innerHTML = this.sTrim(EOL.description, 400, ' ', ' ...');
 			wrapper.appendChild(description);
 		
 		
