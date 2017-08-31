@@ -1,3 +1,9 @@
+// This is just a sample script. Paste your real code (javascript or HTML) here.
+if ('this_is' == /an_example/) {
+    of_beautifier();
+} else {
+    var a = b ? (c % d) : e[f];
+}
 /* Magic Mirror
  * Module: MMM-EOL
  *
@@ -8,79 +14,79 @@ Module.register("MMM-EOL", {
 
     // Module config defaults.           // Make all changes in your config.js file
     defaults: {
-        animal: "",                      // See Animal list
-        useHeader: true,                 // false if you don't want a header      
-        header: "",                      // Change in config file. useHeader must be true
+        animal: "", // See Animal list
+        useHeader: true, // false if you don't want a header      
+        header: "", // Change in config file. useHeader must be true
         maxWidth: "300px",
-        animationSpeed: 3000,            // fade speed
+        animationSpeed: 3000, // fade speed
         initialLoadDelay: 3250,
         retryDelay: 2500,
-        rotateInterval: 5 * 60 * 1000,   // 5 minutes
-        updateInterval: 30 * 60 * 1000,  // 
+        rotateInterval: 5 * 60 * 1000, // 5 minutes
+        updateInterval: 30 * 60 * 1000, // 
 
-    		animalArray: {
-			"Tiger": "328674",
-			"Hummingbirds": "8021",
-			"Lion": "32867",
-			"Jaguar": "328606",
-			"Leopard": "328673",
-			"Cheetah": "328680",
+        animalArray: {
+            "Tiger": "328674",
+            "Hummingbirds": "8021",
+            "Lion": "32867",
+            "Jaguar": "328606",
+            "Leopard": "328673",
+            "Cheetah": "328680",
             "Fox": "19076",
-			"Deaths-head Moth": "50688",
-			"Great White Shark": "213726",
-			"Seals": "7666",
-			"Mosquitos": "473",
-			"Venus Flytrap": "71355",
-			"Cardinals": "19590",
-			"Humpback Whale": "328575",
-			"Praying Mantis": "487055",
-			"Dragonfly": "42274802",
-			"Tarantulas": "170",
-			"Bats": "7631",
-			"Bears": "7631",
-			"Wasps": "3822329",
-			"Striped Bass": "211032",
-			"Alligators": "796029",
-			"Crocodiles": "1739",
-			"Snakes": "2815988",
-			"Cats": "7674",
-			"Birds": "695",
-			"Eagles": "8016",
-			"Bald Eagle": "1049121",
-			"Cactus": "4228",
-			"Anemones and Corals": "1746",
-			"Crabs, Lobsters, and Shrimps": "1183",
-			"Sequoia": "42665",
-			"Sea Horse": "218966",
-		}
+            "Deaths-head Moth": "50688",
+            "Great White Shark": "213726",
+            "Seals": "7666",
+            "Mosquitos": "473",
+            "Venus Flytrap": "71355",
+            "Cardinals": "19590",
+            "Humpback Whale": "328575",
+            "Praying Mantis": "487055",
+            "Dragonfly": "42274802",
+            "Tarantulas": "170",
+            "Bats": "7631",
+            "Bears": "7631",
+            "Wasps": "3822329",
+            "Striped Bass": "211032",
+            "Alligators": "796029",
+            "Crocodiles": "1739",
+            "Snakes": "2815988",
+            "Cats": "7674",
+            "Birds": "695",
+            "Eagles": "8016",
+            "Bald Eagle": "1049121",
+            "Cactus": "4228",
+            "Anemones and Corals": "1746",
+            "Crabs, Lobsters, and Shrimps": "1183",
+            "Sequoia": "42665",
+            "Sea Horse": "218966",
+        }
     },
-	
-	
-	getStyles: function() {
+
+
+    getStyles: function() {
         return ["MMM-EOL.css"];
     },
 
-	
+
     start: function() {
         Log.info("Starting module: " + this.name);
 
         requiresVersion: "2.1.0",
 
-        //  Set locale.
-		
-	//	this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=overview&details=true&taxonomy=false&vetted=1&language=en";
-		this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=all&details=true&references=false&taxonomy=false&vetted=1&language=en";
-		this.EOL = [];
-		this.activeItem = 0;
-		this.rotateInterval = null;
-		this.scheduleUpdate();
-	
-	},
-	
-	
+            //  Set locale.
+
+            //	this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=overview&details=true&taxonomy=false&vetted=1&language=en";
+            this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=all&details=true&references=false&taxonomy=false&vetted=1&language=en";
+        this.EOL = [];
+        this.activeItem = 0;
+        this.rotateInterval = null;
+        this.scheduleUpdate();
+
+    },
+
+
 
     getDom: function() {
-		
+
         var wrapper = document.createElement("div");
         wrapper.className = "wrapper";
         wrapper.style.maxWidth = this.config.maxWidth;
@@ -97,106 +103,107 @@ Module.register("MMM-EOL", {
             header.innerHTML = this.config.header;
             wrapper.appendChild(header);
         }
-		
-		
-	//	Rotating my data
-		var EOL = this.EOL;
-		var EOLKeys = Object.keys(this.EOL);
+
+
+        //	Rotating my data
+        var EOL = this.EOL;
+        var EOLKeys = Object.keys(this.EOL);
         if (EOLKeys.length > 0) {
             if (this.activeItem >= EOLKeys.length) {
                 this.activeItem = 0;
             }
             var EOL = this.EOL[EOLKeys[this.activeItem]];
-		
-	//	console.log(EOL); // for checking
 
-        var top = document.createElement("div");
-        top.classList.add("list-row");
-		
-		// Not THAT important
-		// can't get this at all!!!! It's BEFORE the objects. I'm stumped :-(
-/*		// scientificName
-			var scientificName = document.createElement("div");
-			scientificName.classList.add("small", "bright", "scientificName");
-		//	console.log(EOL);
-			scientificName.innerHTML = EOL.scientificName;
-			wrapper.appendChild(scientificName);
-*/		
-		
-			// title
-			var title = document.createElement("div");
-			title.classList.add("small", "bright", "title");
-		if (EOL.title == undefined || EOL.title == ""){
-			title.innerHTML = "Life is beautiful!";
-			wrapper.appendChild(title);
-		} else
-			title.innerHTML = EOL.title;
-			wrapper.appendChild(title);
-		
-		
-			// picture
-			var img = document.createElement("img");
-			img.classList.add("photo");
-		if (EOL.eolMediaURL == undefined || EOL.eolMediaURL == '') {
-			img.src = "modules/MMM-EOL/placeholders/darwin.jpg";
-			wrapper.appendChild(img);
-		} else
-			img.src = EOL.eolMediaURL;
-			wrapper.appendChild(img);
-		
-		
-/*			// description
-			var description = document.createElement("div");
-			description.classList.add("xsmall", "bright", "description");
-		if (EOL.description == undefined || EOL.description == ""){
-			description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
-			wrapper.appendChild(description);
-		} else
-			description.innerHTML = this.sTrim(EOL.description, 400, ' ', ' ...');
-			wrapper.appendChild(description);
-			
-			// I don't care about this. Not likely to use it!
-			// location
-			var location = document.createElement("div");
-			location.classList.add("xsmall", "bright", "location");
-		if (EOL.location == undefined || EOL.location == ""){
-			location.innerHTML = "";
-			wrapper.appendChild(location);
-		} else
-			location.innerHTML = EOL.location;
-			wrapper.appendChild(location);
-*/			
-		}
-		
-	
-		// I want this description to ALWAYS be there
-		// Is this out of the rotation? I thought so but it only appears once
-		// Then the other descriptions still show up. What is wrong with me?? haha
-		// description
-			var description = document.createElement("div");
-			description.classList.add("xsmall", "bright", "description");
-		if (EOL.description == undefined || EOL.description == ""){
-			description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
-			wrapper.appendChild(description);
-		} else
-			description.innerHTML = this.sTrim(EOL.description, 400, ' ', ' ...');
-			wrapper.appendChild(description);
-		
-		
-		
-		
-		
+            //	console.log(EOL); // for checking
+
+            var top = document.createElement("div");
+            top.classList.add("list-row");
+
+            // Not THAT important
+            // can't get this at all!!!! It's BEFORE the objects. I'm stumped :-(
+            /*		// scientificName
+            			var scientificName = document.createElement("div");
+            			scientificName.classList.add("small", "bright", "scientificName");
+            		//	console.log(EOL);
+            			scientificName.innerHTML = EOL.scientificName;
+            			wrapper.appendChild(scientificName);
+            */
+
+            // title
+            var title = document.createElement("div");
+            title.classList.add("small", "bright", "title");
+            if (EOL.title == undefined || EOL.title == "") {
+                title.innerHTML = "Life is beautiful!";
+                wrapper.appendChild(title);
+            } else
+                title.innerHTML = EOL.title;
+            wrapper.appendChild(title);
+
+
+            // picture
+            var img = document.createElement("img");
+            img.classList.add("photo");
+            if (EOL.eolMediaURL == undefined || EOL.eolMediaURL == '') {
+                img.src = "modules/MMM-EOL/placeholders/darwin.jpg";
+                wrapper.appendChild(img);
+            } else
+                img.src = EOL.eolMediaURL;
+            wrapper.appendChild(img);
+
+
+            /*			// description
+            			var description = document.createElement("div");
+            			description.classList.add("xsmall", "bright", "description");
+            		if (EOL.description == undefined || EOL.description == ""){
+            			description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
+            			wrapper.appendChild(description);
+            		} else
+            			description.innerHTML = this.sTrim(EOL.description, 400, ' ', ' ...');
+            			wrapper.appendChild(description);
+            			
+            			// I don't care about this. Not likely to use it!
+            			// location
+            			var location = document.createElement("div");
+            			location.classList.add("xsmall", "bright", "location");
+            		if (EOL.location == undefined || EOL.location == ""){
+            			location.innerHTML = "";
+            			wrapper.appendChild(location);
+            		} else
+            			location.innerHTML = EOL.location;
+            			wrapper.appendChild(location);
+            */
+        }
+
+
+        // I want this description to ALWAYS be there
+        // Is this out of the rotation? I thought so but it only appears once
+        // Then the other descriptions still show up. What is wrong with me?? haha
+        // description
+        var description = document.createElement("div");
+        description.classList.add("xsmall", "bright", "description");
+        if (EOL.description == undefined || EOL.description == "") {
+            description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
+            wrapper.appendChild(description);
+        } else
+            description.innerHTML = this.sTrim(EOL.description, 400, ' ', ' ...');
+        wrapper.appendChild(description);
+
+
+
+
         return wrapper;
     },
 
 
     processEOL: function(data) {
         this.today = data.Today;
-        this.EOL = data;
+        this.SCI = data.scientificName;
+        this.EOL = data.dataObjects;
+        this.DES = data.dataObjects[0].description;
         this.loaded = true;
     },
-	
-	sTrim: function(str, length, delim, appendix) {
+
+    sTrim: function(str, length, delim, appendix) {
         if (str.length <= length) return str;
         var trimmedStr = str.substr(0, length + delim.length);
         var lastDelimIndex = trimmedStr.lastIndexOf(delim);
