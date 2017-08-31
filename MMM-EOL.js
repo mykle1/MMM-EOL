@@ -25,7 +25,7 @@ Module.register("MMM-EOL", {
 			"Jaguar": "328606",
 			"Leopard": "328673",
 			"Cheetah": "328680",
-            		"Fox": "19076",
+            "Fox": "19076",
 			"Deaths-head Moth": "50688",
 			"Great White Shark": "213726",
 			"Seals": "7666",
@@ -67,7 +67,9 @@ Module.register("MMM-EOL", {
         requiresVersion: "2.1.0",
 
         //  Set locale.
-		this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=overview&details=true&taxonomy=false&vetted=1&language=en";
+		
+	//	this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=overview&details=true&taxonomy=false&vetted=1&language=en";
+		this.url = "http://eol.org/api/pages/1.0.json?batch=false&id=" + this.config.animalArray[this.config.animal] + "&images_per_page=75&subjects=all&details=true&references=false&taxonomy=false&vetted=1&language=en";
 		this.EOL = [];
 		this.activeItem = 0;
 		this.rotateInterval = null;
@@ -111,12 +113,21 @@ Module.register("MMM-EOL", {
         var top = document.createElement("div");
         top.classList.add("list-row");
 		
+		// Not THAT important
+		// can't get this at all!!!! It's BEFORE the objects. I'm stumped :-(
+/*		// scientificName
+			var scientificName = document.createElement("div");
+			scientificName.classList.add("small", "bright", "scientificName");
+		//	console.log(EOL);
+			scientificName.innerHTML = EOL.scientificName;
+			wrapper.appendChild(scientificName);
+*/		
 		
 			// title
 			var title = document.createElement("div");
 			title.classList.add("small", "bright", "title");
 		if (EOL.title == undefined || EOL.title == ""){
-			title.innerHTML = "Lions, TIgers and Bears. Oh My!";
+			title.innerHTML = "Life is beautiful!";
 			wrapper.appendChild(title);
 		} else
 			title.innerHTML = EOL.title;
@@ -127,24 +138,24 @@ Module.register("MMM-EOL", {
 			var img = document.createElement("img");
 			img.classList.add("photo");
 		if (EOL.eolMediaURL == undefined || EOL.eolMediaURL == '') {
-			img.src = "";
+			img.src = "modules/MMM-EOL/placeholders/darwin.jpg";
 			wrapper.appendChild(img);
 		} else
 			img.src = EOL.eolMediaURL;
 			wrapper.appendChild(img);
 		
 		
-			// description
+/*			// description
 			var description = document.createElement("div");
 			description.classList.add("xsmall", "bright", "description");
 		if (EOL.description == undefined || EOL.description == ""){
 			description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
 			wrapper.appendChild(description);
 		} else
-			description.innerHTML = this.sTrim(EOL.description, 187, ' ', ' ...');
+			description.innerHTML = this.sTrim(EOL.description, 400, ' ', ' ...');
 			wrapper.appendChild(description);
 			
-			
+			// I don't care about this. Not likely to use it!
 			// location
 			var location = document.createElement("div");
 			location.classList.add("xsmall", "bright", "location");
@@ -154,8 +165,27 @@ Module.register("MMM-EOL", {
 		} else
 			location.innerHTML = EOL.location;
 			wrapper.appendChild(location);
-			
+*/			
 		}
+		
+	
+		// I want this description to ALWAYS be there
+		// Is this out of the rotation? I thought so but it only appears once
+		// Then the other descriptions still show up. What is wrong with me?? haha
+		// description
+			var description = document.createElement("div");
+			description.classList.add("xsmall", "bright", "description");
+		if (EOL[0].description == undefined || EOL[0].description == ""){
+			description.innerHTML = "I told my son about the birds and the bees and he told me about the butcher and my wife!";
+			wrapper.appendChild(description);
+		} else
+			description.innerHTML = this.sTrim(EOL[0].description, 400, ' ', ' ...');
+			wrapper.appendChild(description);
+		
+		
+		
+		
+		
         return wrapper;
     },
 
