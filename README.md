@@ -8,7 +8,7 @@
 
 * Then, a rotation of images and information about the life form you choose.
 
-* Virtually every form of life on Earth to choose from. (Plants, Fish, Mammals, Reptiles etc..)
+* Virtually every form of life on Earth to choose from. (Plants, Fish, Mammals, Reptiles, Birds etc..)
 
 * I will add life forms as requested. There's just too many to include all of them.
 
