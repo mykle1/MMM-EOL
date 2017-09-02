@@ -35,7 +35,7 @@
         position: 'top_left',
         config: {
            lifeForm: "",                    // See Life Form list below
-           dLength: 400,                    // Length of descriptive text
+           dLength: 400,                    // Amount of descriptive text. Higher for more, lower for less
            useHeader: false,                // false if you don't want a header      
            header: "",                      // Change in config file. useHeader must be true
            maxWidth: "300px",
