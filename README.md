@@ -14,6 +14,8 @@
 
 * "Cats" will include ALL cats, or you can choose a specific species. (Lions, Tigers, etc..)
 
+* You determine how much or how little information is displayed in config file. (dLength: option)
+
 ## Examples
 
 ![](images/darwin.jpg)
