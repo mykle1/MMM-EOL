@@ -53,6 +53,8 @@ Module.register("MMM-EOL", {
             "Crabs, Lobsters, and Shrimps": "1183",
             "Sequoia": "42665",
             "Sea Horse": "218966",
+	    "Hominidae": "1653",
+	    "Primates": "1645",
         }
     },
 
