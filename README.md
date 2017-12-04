@@ -82,6 +82,8 @@
 * "Tarantulas"
 * "Tigers"
 * "Venus Flytrap"
+* "Hominidae"
+* "Primates"
 
 * This is just a small sample of the data available
 
