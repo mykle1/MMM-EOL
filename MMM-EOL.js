@@ -153,6 +153,20 @@ Module.register("MMM-EOL", {
 
         return wrapper;
     },
+	
+	
+/////  Add this function to the modules you want to control with voice //////
+
+    notificationReceived: function(notification, payload) {
+        if (notification === 'HIDE_DARWIN') {
+            this.hide(1000);
+        //    this.updateDom(300);
+        }  else if (notification === 'SHOW_DARWIN') {
+            this.show(1000);
+        //   this.updateDom(300);
+        }
+            
+    },
 
 
     processEOL: function(data) {
