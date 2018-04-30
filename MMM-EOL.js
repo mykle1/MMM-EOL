@@ -55,6 +55,7 @@ Module.register("MMM-EOL", {
             "Sea Horse": "218966",
 	    "Hominidae": "1653",
 	    "Primates": "1645",
+            "Otters": "328044",
         }
     },
 
