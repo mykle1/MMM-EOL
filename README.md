@@ -36,7 +36,7 @@
         module: 'MMM-EOL',                  // Best in left, right or center regions
         position: 'top_left',
         config: {
-           lifeForm: "",                    // See Life Form list below
+           lifeFormId: "7664,7674",         // See Life Form list below. Only Id #'s separated by comma, no space
            dLength: 400,                    // Amount of descriptive text. Higher for more, lower for less
            useHeader: false,                // false if you don't want a header      
            header: "",                      // Change in config file. useHeader must be true
@@ -49,41 +49,44 @@
 ## Life form list
 * If you want something included I will add it ASAP. Just let me know.
 
-* "Alligators"
-* "Anemones and Corals"
-* "Bald Eagle"
-* "Bats"
-* "Bears"
-* "Birds"
-* "Cactus"
-* "Cardinals"
-* "Cats"
-* "Cheetah"
-* "Cicadas"
-* "Crabs, Lobsters, and Shrimps"
-* "Crocodiles"
-* "Deaths-head Moth"
-* "Dragonfly"
-* "Eagles"
-* "Fox"
-* "Great White Shark"
-* "Hummingbirds"
-* "Humpback Whale"
-* "Jaguar"
-* "Leopard"
-* "Lions"
-* "Mosquitos"
-* "Praying Mantis"
-* "Seals"
-* "Sea Horse"
-* "Sequoia"
-* "Snakes"
-* "Striped Bass"
-* "Tarantulas"
-* "Tigers"
-* "Venus Flytrap"
-* "Hominidae"
-* "Primates"
+## Only add the ID number to the config entry. NOT the name.
+
+"Tigers": "328674",
+"Hummingbirds": "8021",
+"Lions": "328672"
+"Jaguar": "328606",
+"Leopard": "328673",
+"Cheetah": "328680",
+"Fox": "19076",
+"Deaths-head Moth": "50688",
+"Great White Shark": "213726",
+"Seals": "7666",
+"Mosquitos": "473",
+"Venus Flytrap": "71355",
+"Cardinals": "19590",
+"Humpback Whale": "328575",
+"Praying Mantis": "487055",
+"Dragonfly": "42274802",
+"Tarantulas": "170",
+"Bats": "7631",
+"Bears": "7664",
+"Cicadas": "2645413",
+"Striped Bass": "211032",
+"Alligators": "796029",
+"Crocodiles": "1739",
+"Snakes": "2815988",
+"Cats": "7674",
+"Birds": "695",
+"Eagles": "8016",
+"Bald Eagle": "1049121",
+"Cactus": "4228",
+"Anemones and Corals": "1746",
+"Crabs, Lobsters, and Shrimps": "1183",
+"Sequoia": "42665",
+"Sea Horse": "218966",
+"Hominidae": "1653",
+"Primates": "1645",
+"Otters": "328044",
 
 * This is just a small sample of the data available
 
