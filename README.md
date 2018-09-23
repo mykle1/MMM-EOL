@@ -36,7 +36,7 @@
         module: 'MMM-EOL',                  // Best in left, right or center regions
         position: 'top_left',
         config: {
-           lifeFormId: "7664,7674",         // See Life Form list below. Only Id #'s separated by comma, no space
+           lifeFormId: "7664",         // See Life Form list below. Only Id #
            dLength: 400,                    // Amount of descriptive text. Higher for more, lower for less
            useHeader: false,                // false if you don't want a header      
            header: "",                      // Change in config file. useHeader must be true
