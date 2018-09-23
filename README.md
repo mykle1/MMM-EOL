@@ -50,7 +50,7 @@
 * If you want something included I will add it ASAP. Just let me know.
 
 ## Only add the ID number to the config entry. NOT the name.
-
+```
 "Tigers": "328674",
 "Hummingbirds": "8021",
 "Lions": "328672"
@@ -87,7 +87,7 @@
 "Hominidae": "1653",
 "Primates": "1645",
 "Otters": "328044",
-
+```
 * This is just a small sample of the data available
 
 ## Remember, I'll add anything you wish to the module
