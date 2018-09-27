@@ -8,16 +8,17 @@ Module.register("MMM-EOL", {
 
     // Module config defaults.           // Make all changes in your config.js file
     defaults: {
-        lifeForm: "",                    // See Life Form list below
-		dLength: 400,                    // Length of descriptive text
-        useHeader: true,                 // false if you don't want a header      
-        header: "",                      // Change in config file. useHeader must be true
+        lifeForm: "", // See Life Form list below
+        scrollDes: "", // yes = scroll description, no = static description
+        dLength: 400, // Length of descriptive text
+        useHeader: true, // false if you don't want a header
+        header: "", // Change in config file. useHeader must be true
         maxWidth: "300px",
-        animationSpeed: 2000,            // fade speed
+        animationSpeed: 2000, // fade speed
         initialLoadDelay: 3250,
         retryDelay: 2500,
-        rotateInterval: 5 * 60 * 1000,   // 5 minutes
-        updateInterval: 60 * 60 * 1000,  // 
+        rotateInterval: 1 * 60 * 1000, // 5 minutes
+        updateInterval: 5 * 60 * 1000, //
 
         lifeFormArray: {
             "Tigers": "328674",
@@ -38,7 +39,7 @@ Module.register("MMM-EOL", {
             "Dragonfly": "42274802",
             "Tarantulas": "170",
             "Bats": "7631",
-            "Bears": "7631",
+            "Bears": "7664",
             "Cicadas": "2645413",
             "Striped Bass": "211032",
             "Alligators": "796029",
@@ -53,10 +54,11 @@ Module.register("MMM-EOL", {
             "Crabs, Lobsters, and Shrimps": "1183",
             "Sequoia": "42665",
             "Sea Horse": "218966",
-	    "Hominidae": "1653",
-	    "Primates": "1645",
+            "Hominidae": "1653",
+            "Primates": "1645",
             "Otters": "328044",
         }
+
     },
 
 
@@ -99,79 +101,83 @@ Module.register("MMM-EOL", {
         }
 
 
-			//	Rotating my data
-			var EOL = this.EOL;
-			var EOLKeys = Object.keys(this.EOL);
+        //	Rotating my data
+        var EOL = this.EOL;
+        var EOLKeys = Object.keys(this.EOL);
         if (EOLKeys.length > 0) {
             if (this.activeItem >= EOLKeys.length) {
                 this.activeItem = 0;
             }
             var EOL = this.EOL[EOLKeys[this.activeItem]];
+            //	console.log(EOL); // for checking
 
-        //	console.log(EOL); // for checking
 
-            var top = document.createElement("div");
-            top.classList.add("list-row");
 
-            
             // scientificName
             var scientificName = document.createElement("div");
             scientificName.classList.add("small", "bright", "scientificName");
             //	console.log(EOL);
             scientificName.innerHTML = this.SCI;
             wrapper.appendChild(scientificName);
-            
+
 
             // title
             var title = document.createElement("div");
             title.classList.add("xsmall", "bright", "title");
-           if (EOL.title == undefined || EOL.title == "") {
+            if (EOL.title == undefined || EOL.title == "") {
                 title.innerHTML = "Life is beautiful!";
                 wrapper.appendChild(title);
             } else
                 title.innerHTML = this.sTrim(EOL.title, 40, ' ', ' ...');
-				wrapper.appendChild(title);
+            wrapper.appendChild(title);
 
 
             // picture
             var img = document.createElement("img");
             img.classList.add("photo");
-        if (EOL.eolMediaURL == "404 Not Found" || EOL.eolMediaURL == undefined || EOL.eolMediaURL == "") {
+            if (EOL.eolMediaURL == 404 || EOL.eolMediaURL == undefined || EOL.eolMediaURL == "") {
                 img.src = "modules/MMM-EOL/images/darwin.jpg";
+                //                console.log(this.EOL);
                 wrapper.appendChild(img);
             } else
                 img.src = EOL.eolMediaURL;
-				wrapper.appendChild(img);
-				
-        }	// End of rotation
+            wrapper.appendChild(img);
 
-		
-			// description NOT IN ROTATION
-			var description = document.createElement("div");
-			description.classList.add("xsmall", "bright", "description");
-			description.innerHTML = this.sTrim(this.DES, this.config.dLength, ' ', ' ...');
-			wrapper.appendChild(description);
+        } // End of rotation
 
+
+        // description NOT IN ROTATION
+        if (this.config.scrollDes != "no") {
+            var description = document.createElement("div");
+            description.classList.add("small", "bright", "description");
+            description.innerHTML = '<marquee behavior="scroll" direction ="left" scrollamount="5">' + this.DES.replace(/<(?:.|\n)*?>/gm, '') + '</marquee>';
+            wrapper.appendChild(description);
+        } else {
+            var description = document.createElement("div");
+            description.classList.add("xsmall", "bright", "description");
+            description.innerHTML = this.sTrim(this.DES, this.config.dLength, ' ', ' ...');
+            wrapper.appendChild(description);
+        }
         return wrapper;
     },
-	
-	
-/////  Add this function to the modules you want to control with voice //////
+
+
+    /////  Add this function to the modules you want to control with voice //////
 
     notificationReceived: function(notification, payload) {
         if (notification === 'HIDE_DARWIN') {
             this.hide(1000);
-        //    this.updateDom(300);
-        }  else if (notification === 'SHOW_DARWIN') {
+            //    this.updateDom(300);
+        } else if (notification === 'SHOW_DARWIN') {
             this.show(1000);
-        //   this.updateDom(300);
+            //   this.updateDom(300);
         }
-            
+
     },
 
 
     processEOL: function(data) {
-        this.today = data.Today;
+        //        this.today = data.Today;
         this.SCI = data.scientificName;
         this.EOL = data.dataObjects;
         this.DES = data.dataObjects[0].description;
