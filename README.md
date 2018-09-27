@@ -16,6 +16,8 @@
 
 * You determine how much or how little information is displayed in config file. (dLength: option)
 
+* Config option to scroll text to conserve Mirror Real estate
+
 ## Examples
 
 ![](images/darwin.jpg)
@@ -37,6 +39,7 @@
         position: 'top_left',
         config: {
            lifeForm: "Cats",                // See Life Form list below. Only the name of the lifeForm.
+	   scrollDes: "yes",                // yes = scroll description, no = static description
            dLength: 400,                    // Amount of descriptive text. Higher for more, lower for less
            useHeader: false,                // false if you don't want a header      
            header: "",                      // Change in config file. useHeader must be true
