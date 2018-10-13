@@ -57,6 +57,7 @@ Module.register("MMM-EOL", {
             "Hominidae": "1653",
             "Primates": "1645",
             "Otters": "328044",
+            "Raccoons": "328598",
         }
 
     },
@@ -135,12 +136,11 @@ Module.register("MMM-EOL", {
             // picture
             var img = document.createElement("img");
             img.classList.add("photo");
-            if (EOL.eolMediaURL == 404 || EOL.eolMediaURL == undefined || EOL.eolMediaURL == "") {
-                img.src = "modules/MMM-EOL/images/darwin.jpg";
-                //                console.log(this.EOL);
-                wrapper.appendChild(img);
-            } else
-                img.src = EOL.eolMediaURL;
+            img.src = EOL.eolMediaURL;
+            img.onerror = function(event_object) { //  This function replaces broken image
+            var img_with_error = event_object.currentTarget //  This function replaces broken image
+            img_with_error.src= "modules/MMM-EOL/images/darwin.jpg" // This is the path to the replacement image
+           }
             wrapper.appendChild(img);
 
         } // End of rotation
@@ -181,6 +181,7 @@ Module.register("MMM-EOL", {
         this.SCI = data.scientificName;
         this.EOL = data.dataObjects;
         this.DES = data.dataObjects[0].description;
+//        console.log(this.EOL);
         this.loaded = true;
     },
 
