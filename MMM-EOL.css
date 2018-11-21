@@ -5,35 +5,38 @@
  */
 
  .MMM-EOL .header {
-  color: #FFFFFF;               /* Color the title text. Default is white. */
+  background: #FF33DD;
+  color: #030002;               /* Color the title text. Default is white. */
   text-align: center;           /* Align the title text. (left, center, right) */
 }
 
 .MMM-EOL .title {
-  color: #FFFFFF;               /* Color the title text. Default is white. */
+ background: #F7FB08;
+  color: #8508FB;               /* Color the title text. Default is white. */
   text-align: center;           /* Align the title text. (left, center, right) */
   /*  display: none; */         /* Uncomment if you don't want title text */
 }
  
  .MMM-EOL .photo {
   width: 100%;                  /* adjust size of picture */
-  height: 200px;                /* adjust size of picture */
-  margin-left: 0px;             /* Precisely align picture with these */
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  height: 20px;                /* adjust size of picture */
+  margin-left: 10px;             /* Precisely align picture with these */
+  margin-right: 20px;
+  margin-top: 330px;
+  margin-bottom: 30px;
   float: center;
 }
 
 .MMM-EOL .description {
+ background: #08F4FB;
   color: #FFFFFF;               /* Color the description text. Default is white. */
-  text-align: center;           /* Align the description text. (left, center, right) */
+  text-align: left;           /* Align the description text. (left, center, right) */
   /*  display: none; */         /* Uncomment if you don't want description text */
 }
 
 .MMM-EOL .location {
-  color: #FFFFFF;               /* Color the location. Default is white. */
-  text-align: center;           /* Align the location. (left, center, right) */
+  color: #8F79F3;               /* Color the location. Default is white. */
+  text-align: right;           /* Align the location. (left, center, right) */
 /*  display: none; */           /* Uncomment if you don't want location */
 }
 
