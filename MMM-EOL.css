@@ -9,12 +9,17 @@
   text-align: center;           /* Align the title text. (left, center, right) */
 }
 
+.MMM-EOL .scientificName {
+  color: #FFFFFF;               /* Color the location. Default is white. */
+  text-align: center;           /* Align the location. (left, center, right) */
+}
+
 .MMM-EOL .title {
   color: #FFFFFF;               /* Color the title text. Default is white. */
   text-align: center;           /* Align the title text. (left, center, right) */
   /*  display: none; */         /* Uncomment if you don't want title text */
 }
- 
+
  .MMM-EOL .photo {
   width: 100%;                  /* adjust size of picture */
   height: 200px;                /* adjust size of picture */
@@ -22,18 +27,11 @@
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  float: center;
+/*  float: center; */
 }
 
 .MMM-EOL .description {
   color: #FFFFFF;               /* Color the description text. Default is white. */
-  text-align: center;           /* Align the description text. (left, center, right) */
-  /*  display: none; */         /* Uncomment if you don't want description text */
+/*  text-align: center;   */        /* Align the description text. (left, center, right) */
+    display: none;          /* Uncomment if you don't want description text */
 }
-
-.MMM-EOL .location {
-  color: #FFFFFF;               /* Color the location. Default is white. */
-  text-align: center;           /* Align the location. (left, center, right) */
-/*  display: none; */           /* Uncomment if you don't want location */
-}
-

@@ -136,7 +136,10 @@ Module.register("MMM-EOL", {
             // picture
             var img = document.createElement("img");
             img.classList.add("photo");
+             var anything = EOL.eolMediaURL;
+            if (anything != 'undefined'||undefined || null){
             img.src = EOL.eolMediaURL;
+            }
             img.onerror = function(event_object) { //  This function replaces broken image
             var img_with_error = event_object.currentTarget //  This function replaces broken image
             img_with_error.src= "modules/MMM-EOL/images/darwin.jpg" // This is the path to the replacement image
@@ -178,10 +181,10 @@ Module.register("MMM-EOL", {
 
     processEOL: function(data) {
         //        this.today = data.Today;
-        this.SCI = data.scientificName;
         this.EOL = data.dataObjects;
-        this.DES = data.dataObjects[0].description;
-//        console.log(this.EOL);
+          console.log(this.EOL);
+        this.SCI = data.scientificName;
+        this.DES = data.dataObjects[1].description;
         this.loaded = true;
     },
 

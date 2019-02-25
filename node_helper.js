@@ -21,7 +21,8 @@ module.exports = NodeHelper.create({
             method: 'GET'
         }, (error, response, body) => {
             if (!error && response.statusCode == 200) {
-                var result = JSON.parse(body);
+                var result = JSON.parse(body).taxonConcept;
+              console.log(result);
                 this.sendSocketNotification('EOL_RESULT', result);
             }
         });
