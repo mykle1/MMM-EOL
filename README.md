@@ -38,7 +38,7 @@
         module: 'MMM-EOL',                  // Best in left, right or center regions
         position: 'top_left',
         config: {
-           lifeForm: "Cats",                // See Life Form list below. Only the name of the lifeForm.
+           lifeForm: "Seals",                // See Life Form list below. Only the name of the lifeForm.
 	   scrollDes: "yes",                // yes = scroll description, no = static description
            dLength: 400,                    // Amount of descriptive text. Higher for more, lower for less
            useHeader: false,                // false if you don't want a header      
